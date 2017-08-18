@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+import scrapy
+from CrawlerWikipedia.items import CrawlerwikipediaItem
+#import html2text
+
+class WikipediaSpider(scrapy.Spider):
+
+	name = 'CrawlerWikipedia'
+	start_urls = ['https://pt.wikipedia.org/wiki/Especial:Aleat%C3%B3ria/']
+
+	def parse(self, response):
+
+		#h = html2text.HTML2Text()
+		#h.ignore_links = True
+		#texto = ""
+
+		item = CrawlerwikipediaItem(texto='')
+
+		ps = response.selector.xpath("//div[@class='mw-parser-output']/p").extract()
+
+		for p in ps:
+			#texto += h.handle(p).strip()
+			item['texto'] += p
+
+		yield item
+
+		yield scrapy.Request(url='https://pt.wikipedia.org/wiki/Especial:Aleat%C3%B3ria
