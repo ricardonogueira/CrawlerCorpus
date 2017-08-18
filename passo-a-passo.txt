@@ -1,0 +1,24 @@
+Softwares Necessários: Python 3 e Git
+
+1 - Crie um ambiente virtual para executar o projeto.
+O comando abaixo só funciona na versão Python3.
+# python -m venv <nome da pasta>
+
+2 - Ative o ambiente virtual
+# cd <nome da pasta>
+# source bin/activate
+
+3 - É necessário instalar alguns módulos para execução deste projeto.
+Este projeto possui dependência do framework SCRAPY e do módulo html2text
+# pip install python-scrapy
+# pip install html2text
+
+3 - Baixe o projeto do repositório do GITHUB para dentro do ambiente virtual.
+# git clone https://github.com/ricardonogueira/CrawlerCorpus.git
+
+4 - Com o código baixado dentro da pasta virtual, execute o seguinte comando:
+# scrapy crawl CrawlerWikipedia -s DEPTH_LIMIT=<profundidade de navegação>
+
+5 - Como resultado da execução será gerado um arquivo chamado "corpus.txt"
+com todo o texto extraído do site do WikiPedia e a navegação será feita através
+dos links encontrados.
